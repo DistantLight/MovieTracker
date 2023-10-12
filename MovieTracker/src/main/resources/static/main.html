@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie Tracker</title>
+</head>
+<body>
+
+<h1>Введите список фильмов</h1>
+
+<form>
+    <textarea id="text" rows="10" cols="80"></textarea>
+    <br>
+    <button type="button" onclick="sendRequest()">Отправить</button>
+</form>
+
+<br>
+<br>
+
+<div id="result"></div>
+
+<script>
+    function sendRequest() {
+      let text = document.getElementById("text").value;
+
+      let xhr = new XMLHttpRequest();
+      xhr.open("POST", "/filter");
+
+      xhr.setRequestHeader("Content-Type", "application/json");
+
+      xhr.onload = function() {
+        const responseData = xhr.response;
+        const resultElement = document.getElementById('result');
+        resultElement.innerText = JSON.stringify(responseData);
+      };
+
+      let data = JSON.stringify({
+        text: text
+      });
+
+      xhr.send(data);
+    }
+</script>
+</body>
+</html>

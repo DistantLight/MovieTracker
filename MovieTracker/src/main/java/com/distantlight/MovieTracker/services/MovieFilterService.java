@@ -23,7 +23,7 @@ public class MovieFilterService {
 
     public List<String> getFilterMovies(MovieFilterRequest movieFilterRequest){
         ArrayList<String> movieList = new ArrayList<>(List.of(movieFilterRequest.getText().split("\\n")));
-        List<String> requiredGenres = Arrays.asList("Western");
+        List<String> requiredGenres = movieFilterRequest.getRequiredGenres();
         Set<Integer> requiredGenresIds = requiredGenres.stream().map(o-> GenreDictionary.getGenreDictionary().get(o)).collect(Collectors.toSet());
 
         ArrayList<MovieInfoDto> resultMovieList = new ArrayList<>();

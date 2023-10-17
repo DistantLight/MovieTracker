@@ -6,10 +6,51 @@
 </head>
 <body>
 
-<h1>Введите список фильмов</h1>
+<h1>Movie Tracker</h1>
 
+<span>Введите список фильмов</span>
 <form>
     <textarea id="text" rows="10" cols="80"></textarea>
+    <br>
+    <span>Выберите жанры</span>
+    <br>
+    <input type="checkbox" name="Action" value="Action"> Action
+    <br>
+    <input type="checkbox" name="Adventure" value="Adventure"> Adventure
+    <br>
+    <input type="checkbox" name="Animation" value="Animation"> Animation
+    <br>
+    <input type="checkbox" name="Comedy" value="Comedy"> Comedy
+    <br>
+    <input type="checkbox" name="Crime" value="Crime"> Crime
+    <br>
+    <input type="checkbox" name="Documentary" value="Documentary"> Documentary
+    <br>
+    <input type="checkbox" name="Drama" value="Drama"> Drama
+    <br>
+    <input type="checkbox" name="Family" value="Family"> Family
+    <br>
+    <input type="checkbox" name="Fantasy" value="Fantasy"> Fantasy
+    <br>
+    <input type="checkbox" name="History" value="History"> History
+    <br>
+    <input type="checkbox" name="Horror" value="Horror"> Horror
+    <br>
+    <input type="checkbox" name="Music" value="Music"> Music
+    <br>
+    <input type="checkbox" name="Mystery" value="Mystery"> Mystery
+    <br>
+    <input type="checkbox" name="Romance" value="Romance"> Romance
+    <br>
+    <input type="checkbox" name="Science Fiction" value="Science Fiction"> Science Fiction
+    <br>
+    <input type="checkbox" name="TV Movie" value="TV Movie"> TV Movie
+    <br>
+    <input type="checkbox" name="Thriller" value="Thriller"> Thriller
+    <br>
+    <input type="checkbox" name="War" value="War"> War
+    <br>
+    <input type="checkbox" name="Western" value="Western"> Western
     <br>
     <button type="button" onclick="sendRequest()">Отправить</button>
 </form>
@@ -22,6 +63,15 @@
 <script>
     function sendRequest() {
       let text = document.getElementById("text").value;
+
+      const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+      const requiredGenres = [];
+
+      checkboxes.forEach(checkbox => {
+        if (checkbox.checked) {
+            requiredGenres.push(checkbox.value);
+        }
+      });
 
       let xhr = new XMLHttpRequest();
       xhr.open("POST", "/filter");
@@ -38,7 +88,8 @@
       };
 
       let data = JSON.stringify({
-        text: text
+        text: text,
+        requiredGenres: requiredGenres
       });
 
       xhr.send(data);

@@ -79,6 +79,14 @@
       xhr.setRequestHeader("Content-Type", "application/json");
 
       xhr.onload = function() {
+         if (xhr.status != 200) {
+            const resultElement = document.getElementById('result');
+
+            resultElement.innerText = 'Ошибка ' + xhr.status + ': ' + xhr.responseText;
+
+            return;
+         }
+
         const responseData = JSON.parse(xhr.response);
 
         const result = responseData.join('\n');

@@ -9,7 +9,7 @@ import org.springframework.web.client.RestTemplate;
 @ComponentScan(lazyInit = true)
 public class TestConfig {
     @Bean
-    public RestTemplate restTemplate() {
+    public RestTemplate restTemplateTest() {
         return new RestTemplate();
     }
 }

@@ -21,10 +21,19 @@ public class ErrorHandler {
                 .body("Нет соединения со сторонним сервисом");
     }
 
+    @ExceptionHandler(StringIndexOutOfBoundsException.class)
+    public ResponseEntity<?> handleStringOutOfBoundsException(Exception e) {
+        return ResponseEntity
+                .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body("Ошибка в названиях фильмов");
+    }
+
     @ExceptionHandler(Exception.class)
     public ResponseEntity<?> handleException(Exception e) {
         return ResponseEntity
                 .status(HttpStatus.INTERNAL_SERVER_ERROR)
                 .body("Произошла ошибка на сервере");
     }
+
+
 }

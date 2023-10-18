@@ -26,6 +26,10 @@ public class MovieFilterService {
         List<String> requiredGenres = movieFilterRequest.getRequiredGenres();
         Set<Integer> requiredGenresIds = requiredGenres.stream().map(o-> GenreDictionary.getGenreDictionary().get(o)).collect(Collectors.toSet());
 
+        if(requiredGenres.isEmpty()){
+            return movieList;
+        }
+
         ArrayList<MovieInfoDto> resultMovieList = new ArrayList<>();
         for(String movieName: movieList) {
             String title = movieName.substring(0, movieName.length() - 5);

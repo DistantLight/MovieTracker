@@ -17,7 +17,7 @@ public class MainController {
     }
 
     @PostMapping("/filter")
-    public ResponseEntity<?> getFilterMovies(@RequestBody MovieFilterRequest movieFilterRequest){
+    public ResponseEntity<?> getFilteredMovies(@RequestBody MovieFilterRequest movieFilterRequest){
         return ResponseEntity.ok(movieFilterService.getFilterMovies(movieFilterRequest));
     }
 }

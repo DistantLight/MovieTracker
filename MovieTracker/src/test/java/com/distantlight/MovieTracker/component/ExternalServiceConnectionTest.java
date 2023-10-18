@@ -16,7 +16,7 @@ import static org.springframework.test.util.AssertionErrors.fail;
 @SpringBootTest(classes = TestConfig.class)
 public class ExternalServiceConnectionTest {
     @Autowired
-    private RestTemplate restTemplate;
+    private RestTemplate restTemplateTest;
     @Value("${external.api.key}")
     private String apiKey;
 
@@ -30,7 +30,7 @@ public class ExternalServiceConnectionTest {
 
         //when and then
         try {
-            restTemplate.getForObject(url, MovieInfoResponseDto.class);
+            restTemplateTest.getForObject(url, MovieInfoResponseDto.class);
         } catch (ResourceAccessException e) {
             fail("unable to connect");
         }

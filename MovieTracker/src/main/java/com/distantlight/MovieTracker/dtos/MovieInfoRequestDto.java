@@ -11,7 +11,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class MovieInfoDto {
+public class MovieInfoRequestDto {
     @JsonProperty("title")
     private String title;
     @JsonProperty("original_title")

@@ -5,11 +5,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
 
-@Configuration
-@ComponentScan(lazyInit = true)
+@Configuration()
+@ComponentScan(lazyInit = true, basePackages = "com.distantlight.MovieTracker")
 public class TestConfig {
-    @Bean
-    public RestTemplate restTemplateTest() {
-        return new RestTemplate();
-    }
 }

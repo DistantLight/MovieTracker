@@ -1,4 +1,4 @@
-package com.distantlight.MovieTracker.entities;
+package com.distantlight.MovieTracker.dtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

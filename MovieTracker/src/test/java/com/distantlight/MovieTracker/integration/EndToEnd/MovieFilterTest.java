@@ -1,8 +1,8 @@
 package com.distantlight.MovieTracker.integration.EndToEnd;
 
+import com.distantlight.MovieTracker.config.TestConfig;
 import com.distantlight.MovieTracker.controllers.MainController;
-import com.distantlight.MovieTracker.entities.MovieFilterRequest;
-import com.distantlight.MovieTracker.services.MovieFilterService;
+import com.distantlight.MovieTracker.dtos.MovieFilterRequest;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -14,7 +14,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 
-@SpringBootTest
+@SpringBootTest(classes = TestConfig.class)
 class MovieFilterTest {
     @Autowired
     private MainController mainController;

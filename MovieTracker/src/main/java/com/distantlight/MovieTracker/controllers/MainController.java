@@ -1,6 +1,6 @@
 package com.distantlight.MovieTracker.controllers;
 
-import com.distantlight.MovieTracker.entities.MovieFilterRequest;
+import com.distantlight.MovieTracker.dtos.MovieFilterRequest;
 import com.distantlight.MovieTracker.services.MovieFilterService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

@@ -2,7 +2,7 @@ package com.distantlight.MovieTracker.services;
 
 import com.distantlight.MovieTracker.dtos.MovieInfoDto;
 import com.distantlight.MovieTracker.dtos.MovieInfoResponseDto;
-import com.distantlight.MovieTracker.entities.MovieFilterRequest;
+import com.distantlight.MovieTracker.dtos.MovieFilterRequest;
 import com.distantlight.MovieTracker.repositrories.GenreDictionary;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;

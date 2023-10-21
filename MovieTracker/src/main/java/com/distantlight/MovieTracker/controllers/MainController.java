@@ -38,4 +38,15 @@ public class MainController {
                 .contentType(MediaType.parseMediaType("text/javascript"))
                 .body(resource);
     }
+
+    @GetMapping("/styles")
+    public ResponseEntity<Resource> getStyles() throws IOException {
+
+        Resource resource = new ClassPathResource("css/styles.css");
+
+        return ResponseEntity.ok()
+                .contentLength(resource.contentLength())
+                .contentType(MediaType.parseMediaType("text/css"))
+                .body(resource);
+    }
 }
